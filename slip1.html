@@ -1,0 +1,277 @@
+Q1
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volume of sphere</title>
+</head>
+<body>
+	<form>
+        <fieldset>
+            Input Radius value and get the volume of a sphere
+            <br><br>
+            Radius
+            <br>
+            <input type="number" id="radius" name="radius">
+            <br><br>
+            Volume
+            <br>
+            <input type="number" id="output" name="output">
+            <br>
+            <input type="button" value="Calculate" onclick="volofsphere()">
+        </fieldset>
+    </form>
+    <script>
+        function volofsphere() {
+            let r = document.getElementById("radius").value;
+            let vol = 4 / 3 * 3.14 * (r * r * r);
+            document.getElementById("output").value = vol;
+        }
+    </script>
+</body>
+</html>
+
+==========================================================================================================================================================
+Q2
+
+=============================================================================================================================
+Q3
+SQL> SET SERVEROUTPUT ON
+SQL> create table client(c_no number(5) primary key,
+  2  c_name varchar(10),
+  3  addr varchar(10),
+  4  birth date);
+
+Table created.
+
+SQL> create table policy(p_no number(5) primary key,
+  2  descr varchar(10),
+  3  mat_amt number(8) CHECK(mat_amt>0),
+  4  prem_amt number(8) CHECK(prem_amt>0),
+  5  p_date date);
+
+Table created.
+
+SQL> create table relation(c_no number(5) references client(c_no),
+  2  p_no number(5) references policy(p_no));
+
+Table created.
+
+SQL> insert into client values(&c_no,'&c_name','&addr','&birth');
+Enter value for c_no: 1
+Enter value for c_name: Parth
+Enter value for addr: Hirawadi
+Enter value for birth: 07/OCT/2002
+old   1: insert into client values(&c_no,'&c_name','&addr','&birth')
+new   1: insert into client values(1,'Parth','Hirawadi','07/OCT/2002')
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 2
+Enter value for c_name: Ritu
+Enter value for addr: Panchavati
+Enter value for birth: 15/MAR/2000
+old   1: insert into client values(&c_no,'&c_name','&addr','&birth')
+new   1: insert into client values(2,'Ritu','Panchavati','15/MAR/2000')
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 3
+Enter value for c_name: Rahul
+Enter value for addr: Deolali
+Enter value for birth: 03/FEB/2001
+old   1: insert into client values(&c_no,'&c_name','&addr','&birth')
+new   1: insert into client values(3,'Rahul','Deolali','03/FEB/2001')
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 4
+Enter value for c_name: Namrata
+Enter value for addr: Adgoan
+Enter value for birth: 04/DEC/2003
+old   1: insert into client values(&c_no,'&c_name','&addr','&birth')
+new   1: insert into client values(4,'Namrata','Adgoan','04/DEC/2003')
+
+1 row created.
+
+SQL> insert into policy values(&p_no,'&descr',&mat_amt,&prem_amt,'&p_date');
+Enter value for p_no: 101
+Enter value for descr: Federal
+Enter value for mat_amt: 50000
+Enter value for prem_amt: 60000
+Enter value for p_date: 15/AUG/2015
+old   1: insert into policy values(&p_no,'&descr',&mat_amt,&prem_amt,'&p_date')
+new   1: insert into policy values(101,'Federal',50000,60000,'15/AUG/2015')
+
+1 row created.
+
+SQL> /
+Enter value for p_no: 102
+Enter value for descr: Municipal
+Enter value for mat_amt: 14000
+Enter value for prem_amt: 26000
+Enter value for p_date: 04/DEC/2013
+old   1: insert into policy values(&p_no,'&descr',&mat_amt,&prem_amt,'&p_date')
+new   1: insert into policy values(102,'Municipal',14000,26000,'04/DEC/2013')
+
+1 row created.
+
+SQL> /
+Enter value for p_no: 103
+Enter value for descr: Provincial
+Enter value for mat_amt: 60000
+Enter value for prem_amt: 71000
+Enter value for p_date: 07/SEP/2019
+old   1: insert into policy values(&p_no,'&descr',&mat_amt,&prem_amt,'&p_date')
+new   1: insert into policy values(103,'Provincial',60000,71000,'07/SEP/2019')
+
+1 row created.
+
+SQL> 104
+SP2-0226: Invalid line number
+SQL> /
+Enter value for p_no: 104
+Enter value for descr: Federal
+Enter value for mat_amt: 51000
+Enter value for prem_amt: 72000
+Enter value for p_date: 28/MAY/2020
+old   1: insert into policy values(&p_no,'&descr',&mat_amt,&prem_amt,'&p_date')
+new   1: insert into policy values(104,'Federal',51000,72000,'28/MAY/2020')
+
+1 row created.
+
+SQL> insert into relation values(&c_no,&p_no);
+Enter value for c_no: 1
+Enter value for p_no: 104
+old   1: insert into relation values(&c_no,&p_no)
+new   1: insert into relation values(1,104)
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 4
+Enter value for p_no: 103
+old   1: insert into relation values(&c_no,&p_no)
+new   1: insert into relation values(4,103)
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 3
+Enter value for p_no: 101
+old   1: insert into relation values(&c_no,&p_no)
+new   1: insert into relation values(3,101)
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 2
+Enter value for p_no: 104
+old   1: insert into relation values(&c_no,&p_no)
+new   1: insert into relation values(2,104)
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 1
+Enter value for p_no: 101
+old   1: insert into relation values(&c_no,&p_no)
+new   1: insert into relation values(1,101)
+
+1 row created.
+
+SQL> /
+Enter value for c_no: 3
+Enter value for p_no: 101
+old   1: insert into relation values(&c_no,&p_no)
+new   1: insert into relation values(3,101)
+
+1 row created.
+
+SQL> select * from client ;
+
+      C_NO C_NAME     ADDR       BIRTH
+---------- ---------- ---------- ---------
+         1 Parth      Hirawadi   07-OCT-02
+         2 Ritu       Panchavati 15-MAR-00
+         3 Rahul      Deolali    03-FEB-01
+         4 Namrata    Adgoan     04-DEC-03
+
+SQL> select * from policy;
+
+      P_NO DESCR         MAT_AMT   PREM_AMT P_DATE
+---------- ---------- ---------- ---------- ---------
+       101 Federal         50000      60000 15-AUG-15
+       102 Municipal       14000      26000 04-DEC-13
+       103 Provincial      60000      71000 07-SEP-19
+       104 Federal         51000      72000 28-MAY-20
+
+SQL> select * from relation;
+
+      C_NO       P_NO
+---------- ----------
+         1        104
+         4        103
+         3        101
+         2        104
+         1        101
+         3        101
+
+6 rows selected.
+
+SQL> create or replace function f1(abc IN varchar) return number as xyz number;
+  2  begin
+  3  select sum(policy.mat_amt)into xyz
+  4  from client,policy,relation
+  5  where client.c_no=relation.c_no
+  6  and policy.p_no=relation.p_no
+  7  and c_name='Parth';
+  8     if sql%found then
+  9     return(xyz);
+ 10     else
+ 11     return null;
+ 12     end if;
+ 13  end f1;
+ 14  /
+
+Function created.
+
+SQL> begin
+  2  dbms_output.put_line('amount: ' || f1('Parth'));
+  3  end;
+  4  /
+amount: 101000
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  cursor c1 IS select c_name,addr,p_date
+  3  from client,policy,relation
+  4  where client.c_no=relation.c_no
+  5  and policy.p_no=relation.p_no
+  6  ORDER BY p_date;
+  7  cur c1%ROWTYPE;
+  8  begin
+  9  open c1;
+ 10     LOOP
+ 11     fetch c1 into cur;
+ 12     exit when c1%NOTFOUND;
+ 13     dbms_output.put_line(cur.c_name ||'  ' ||cur.addr ||'  ' ||cur.p_date);
+ 14     end LOOP;
+ 15  close c1;
+ 16  end;
+ 17  /
+Rahul  Deolali  15-AUG-15
+Parth  Hirawadi  15-AUG-15
+Rahul  Deolali  15-AUG-15
+Namrata  Adgoan  07-SEP-19
+Ritu  Panchavati  28-MAY-20
+Parth  Hirawadi  28-MAY-20
+
+PL/SQL procedure successfully completed.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+================================================================================================================================================================================
+

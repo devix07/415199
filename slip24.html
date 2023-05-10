@@ -1,0 +1,29 @@
+Q1
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odd Numbers</title>
+</head>
+<body>
+    <script>
+        let num = prompt('Give number');
+        let r, sum = 0;
+        document.write("Given number : " + num + "<br>");
+        function oddsum() 
+	{
+            while (num > 0) 
+	    {
+                r = num % 10;
+                if (r % 2 != 0) 
+		{
+                    sum += r;
+                }
+                num = (num - r) / 10;
+            }
+        }
+        oddsum();
+        document.write("The sum of odd in given number is " + sum);
+    </script>
+</body>
+</html>
+================================================================================================

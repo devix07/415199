@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f1f1;
+            height: 90vh;
+            font-family: Montserrat;
+        }
+
+        .container {
+            font-size: 36px;
+            padding: 50px 50px;
+            width: 50px 50px;
+            max-width: 50px 50px;
+            text-align: center;
+            background-color: white;
+            color: #013e41;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 5px #dcdcdc;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            margin-bottom: 25px;
+            font-size: 50px;
+        }
+
+        input {
+            width: 300px;
+            height: 30px;
+            margin-bottom: 1vh;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 250px;
+            height: 35px;
+            border: none;
+            border-radius: 10px;
+            background-color: #11949c;
+            font-size: 15px;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0c6f74;
+            font-weight: bold;
+        }
+
+        #loginmsg {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>LOGIN</h1>
+        <input type="text" name="username" id="username" placeholder="Username...">
+        <br>
+        <input type="text" name="password" id="password" placeholder="Password...">
+        <br>
+        <button onclick="login()">Login</button>
+        <div id="loginmsg"></div>
+    </div>
+
+    <script>
+        function login() {
+            let user_name = document.getElementById("username").value;
+            let pass_word = document.getElementById("password").value;
+            if (user_name == pass_word) {
+                document.getElementById("loginmsg").innerHTML = "Username and Password is correct";
+            }
+            else {
+                document.getElementById("loginmsg").innerHTML = "Username or Password is incorrect";
+                document.getElementById("loginmsg").style.color = "red";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+Q1
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Length of string</title>
+</head>
+<body>
+    <script>
+        let str = prompt('Give string');
+        let strlen = lengthofstr(str);
+        function lengthofstr(str) {
+            let len = 0;
+            for (let i = 0; i < str.length; i++) {
+                len++;
+            }
+            return len;
+        }
+        document.write("The length of given string is " + strlen);
+    </script>
+</body>
+</html>
+================================================================================================
